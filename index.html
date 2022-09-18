@@ -1,0 +1,46 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+   <script src="script.js"></script>
+    <title>Document</title>
+    
+</head>
+
+<body>
+    <h1>Cilok asep</h1>
+    <i class="txtitalic">enak dan lezat!</i>
+    <br>
+    <img src="download (9).jfif" alt="">
+    <i class="txtitalic">website ini hanya percobaan jadi maklumi designnya seadanya😅</i>
+<div class="container">
+    <button onclick="tambah()" class="btn" >Tambah</button>
+
+  <form name="submit-to-google-sheet">
+    <h2 id="nama" class="box" type="text">Nama:   <input   id="namainput" name = "nama"  style="margin-top: 1rem; margin-left: 1.2rem;" ></h2>
+    <br>
+    <h2 id="jumlah" class="box">Jumlah: <input name = "jumlah" type="number" style="margin-top: 0.5rem; " min="1" max="10"></h2>
+    <br>
+    <button onclick="beli()" type="submit" id="btn2" class="btn2">Beli</button>
+ </form>
+</div>
+
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyoorzi2OvkAKV7v9hHPJyUXiXA7RNYS872HxCcU1DMkE53jxX6srTe7szt1SZla3h8/exec'
+    const form = document.forms['submit-to-google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+
+
+</html>
